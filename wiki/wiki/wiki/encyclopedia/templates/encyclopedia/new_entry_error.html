@@ -1,0 +1,20 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Error Page
+{% endblock %}
+
+{% block body %}
+    <h1>Error</h1>
+    <h2>Entry Already exists.</h2>
+
+    <div>
+        <a href="{% url 'index' %}">Home</a>
+    </div>
+    <div>
+        <a href="{% url 'new' %}">Create New Page</a>
+    </div>
+
+    
+
+{% endblock %}

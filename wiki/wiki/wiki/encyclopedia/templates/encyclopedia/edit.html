@@ -1,0 +1,24 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    <h1>Edit {{ title }} Page</h1>
+
+
+    <form name="edit_form" method="post" action="{% url 'new_content' %}" onsubmit="return validate_edit_Form()" required>
+        {% csrf_token %}
+
+        <label for="title">Search Title</label>
+        <input type="text" placeholder="Enter Title" name="title">
+
+        <label for="content">Add Content</label>
+        <input type="text" placeholder="content" name="content">
+
+        <input type="submit" value="Save">
+
+    </form>
+
+{% endblock %}

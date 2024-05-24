@@ -1,0 +1,31 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    <h1>Create New Page</h1>
+
+    <ul>
+        {% for entr in entries %}
+            <li>
+                <a href="/wiki/{{entr}}" >{{entr}}</a>"
+            </li>
+        {% endfor %}
+    </ul>
+
+    <form name="new_form" method="post" action="{% url 'new_title' %}" onsubmit="return validateForm()" required>
+        {% csrf_token %}
+
+        <label for="title">New Title</label>
+        <input type="text" placeholder="Enter Title" name="title">
+
+        <label for="content">Add Content</label>
+        <input type="text" placeholder="Enter Content" name="content">
+
+        <input type="submit" value="Save">
+
+    </form>
+
+{% endblock %}
